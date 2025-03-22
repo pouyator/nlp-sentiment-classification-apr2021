@@ -28,7 +28,7 @@ def inference_examples(model_filepath, cls_token_is_first, tokenizer_filepath, e
     tokenizer = torch.load(tokenizer_filepath)
     # set the padding token if its undefined
     if not hasattr(tokenizer, 'pad_token') or tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
+        tokenizer.pad_token = tokenizer._eos_token
     # load the specified embedding
     embedding = torch.load(embedding_filepath, map_location=torch.device(device))
 
